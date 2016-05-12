@@ -2,5 +2,8 @@
   "name": "turf-polygon-reduce",
   "version": "0.0.0",
   "description": "turf-polygon-reduce put into npm package",
-  "main": "index.js"
+  "main": "index.js",
+  "dependencies": {
+    "turf": "2.0.x"
+  }
 }

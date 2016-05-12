@@ -1,9 +1,9 @@
 var 
-	pol = require('turf-polygon'),
-	simplify = require('turf-simplify'),
-	buffer= require('turf-buffer'),
-	area = require('turf-area'),
-	centroid = require('turf-centroid');
+	pol = require('turf').polygon,
+	simplify = require('turf').simplify,
+	buffer= require('turf').buffer,
+	area = require('turf').area,
+	centroid = require('turf').centroid;
 
  /**
 *   turf.polygonreduce
