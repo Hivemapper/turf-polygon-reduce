@@ -2,7 +2,7 @@ var
 	pol = require('turf').polygon,
 	simplify = require('turf').simplify,
 	buffer= require('turf').buffer,
-	area = require('turf').area,
+	turfarea = require('turf').area,
 	centroid = require('turf').centroid;
 
  /**
@@ -31,10 +31,10 @@ module.exports = function(poly, tolerance){
 
     var
         // init area value
-        area = area(poly),
+        area = turfarea(poly),
 
         // max number of points to force a simplify
-        maxcount = (fine) ? 500 : 250,
+        maxcount = 250, //(fine) ? 500 : 250,
 
         // factor of shrinking ~ poly.area^1/2
         factor,
@@ -47,8 +47,8 @@ module.exports = function(poly, tolerance){
             if (e2.geometry.type=='MultiPolygon'){
                 for (i=0;i<e2.geometry.coordinates.length;i++){
                     p = pol(e2.geometry.coordinates[i]);
-                    if (area(p)>a){
-                        a = area(p);
+                    if (turfarea(p)>a){
+                        a = turfarea(p);
                         j=i;
                     }
                 }
@@ -71,7 +71,7 @@ module.exports = function(poly, tolerance){
             return centroid(poly);
         }
         poly = multi2simple(poly);
-        area = area(poly);
+        area = turfarea(poly);
     }
 
     // finally, if area<=1
