@@ -1,0 +1,6 @@
+{
+  "name": "turf-polygon-reduce",
+  "version": "0.0.0",
+  "description": "turf-polygon-reduce put into npm package",
+  "main": "index.js"
+}
